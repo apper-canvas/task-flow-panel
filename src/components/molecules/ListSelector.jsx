@@ -41,9 +41,9 @@ const ListSelector = ({ value, onChange, className = "" }) => {
       onChange={onChange}
       className={className}
     >
-      {lists.map((list) => (
+{lists.map((list) => (
         <option key={list.Id} value={list.Id.toString()}>
-          {list.name}
+          {list.Name}
         </option>
       ))}
     </Select>

@@ -12,7 +12,7 @@ const TaskForm = ({
   onCancel,
   loading = false 
 }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: "",
     description: "",
     priority: "medium",
@@ -27,9 +27,9 @@ const TaskForm = ({
       setFormData({
         title: task.title || "",
         description: task.description || "",
-        priority: task.priority || "medium",
-        dueDate: task.dueDate || "",
-        listId: task.listId || "1"
+priority: task.priority_c || "medium",
+        dueDate: task.dueDate_c || "",
+        listId: task.listId_c?.Id?.toString() || "1"
       })
     }
   }, [task])

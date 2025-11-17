@@ -1,8 +1,9 @@
-import SearchBar from "@/components/molecules/SearchBar"
-import FilterTabs from "@/components/molecules/FilterTabs"
-import SortDropdown from "@/components/molecules/SortDropdown"
-import Button from "@/components/atoms/Button"
-import ApperIcon from "@/components/ApperIcon"
+import SearchBar from '@/components/molecules/SearchBar'
+import FilterTabs from '@/components/molecules/FilterTabs'
+import SortDropdown from '@/components/molecules/SortDropdown'
+import Button from '@/components/atoms/Button'
+import ApperIcon from '@/components/ApperIcon'
+import LogoutButton from '@/components/organisms/LogoutButton'
 
 const Header = ({
   searchQuery,

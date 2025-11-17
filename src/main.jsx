@@ -1,9 +1,25 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import { RouterProvider } from "react-router-dom"
-import { router } from "@/router"
 import "./index.css"
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { store } from "./store";
+import React from "react";
+import App from "@/App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
-)
+  <Provider store={store}>
+    <App />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+/>
+  </Provider>
+);

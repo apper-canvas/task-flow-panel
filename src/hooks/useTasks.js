@@ -35,7 +35,7 @@ export const useTasks = () => {
     }
   }
   
-  const updateTask = async (taskId, updateData) => {
+const updateTask = async (taskId, updateData) => {
     try {
       const updatedTask = await taskService.update(taskId, updateData)
       setTasks(prev => prev.map(task => 
@@ -62,14 +62,14 @@ export const useTasks = () => {
     }
   }
   
-  const toggleTaskComplete = async (taskId) => {
+const toggleTaskComplete = async (taskId) => {
     try {
       const updatedTask = await taskService.toggleComplete(taskId)
       setTasks(prev => prev.map(task => 
         task.Id === taskId ? updatedTask : task
       ))
       
-      if (updatedTask.completed) {
+      if (updatedTask.completed_c) {
         toast.success("Task completed! Great job! 🎉")
       } else {
         toast.info("Task marked as incomplete")

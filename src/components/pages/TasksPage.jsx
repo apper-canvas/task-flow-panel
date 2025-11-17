@@ -30,15 +30,15 @@ const TasksPage = () => {
   const [modalLoading, setModalLoading] = useState(false)
   
   // Filtered and sorted tasks
-  const filteredTasks = useMemo(() => {
+const filteredTasks = useMemo(() => {
     let filtered = tasks
     
     // Apply search filter
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase()
       filtered = filtered.filter(task =>
-        task.title.toLowerCase().includes(query) ||
-        task.description.toLowerCase().includes(query)
+        (task.title_c || '').toLowerCase().includes(query) ||
+        (task.description_c || '').toLowerCase().includes(query)
       )
     }
     

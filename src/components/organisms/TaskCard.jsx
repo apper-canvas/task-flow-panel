@@ -38,7 +38,7 @@ const TaskCard = ({
       whileHover={{ scale: 1.01 }}
       className={cn(
         "card card-hover p-4 group",
-        task.completed && "task-complete bg-gray-50",
+task.completed_c && "task-complete bg-gray-50",
         className
       )}
     >
@@ -46,7 +46,7 @@ const TaskCard = ({
         {/* Checkbox */}
         <div className="flex-shrink-0 pt-1">
           <Checkbox
-            checked={task.completed}
+checked={task.completed_c}
             onChange={handleToggleComplete}
             size="large"
             className={task.completed ? "animate-checkmark" : ""}
@@ -59,26 +59,26 @@ const TaskCard = ({
             <div className="flex-1 min-w-0 pr-4">
               <h3 className={cn(
                 "text-lg font-semibold text-gray-900 task-title",
-                task.completed && "line-through text-gray-500"
+task.completed_c && "line-through text-gray-500"
               )}>
-                {task.title}
+{task.title_c}
               </h3>
               
-              {task.description && (
+{task.description_c && (
                 <p className={cn(
-                  "mt-1 text-sm text-gray-600 line-clamp-2",
+"mt-1 text-sm text-gray-600 line-clamp-2",
                   task.completed && "text-gray-400"
                 )}>
-                  {task.description}
+{task.description_c}
                 </p>
               )}
               
               {/* Badges */}
               <div className="flex items-center space-x-2 mt-3">
-                <PriorityBadge priority={task.priority} />
+<PriorityBadge priority={task.priority_c} />
                 <DueDateBadge 
-                  dueDate={task.dueDate} 
-                  completed={task.completed} 
+dueDate={task.dueDate_c} 
+                  completed={task.completed_c}
                 />
               </div>
             </div>
