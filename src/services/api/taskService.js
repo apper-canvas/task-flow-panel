@@ -23,7 +23,8 @@ class TaskService {
           {"field": {"Name": "Name"}}, 
           {"field": {"Name": "Tags"}}, 
           {"field": {"Name": "title_c"}}, 
-          {"field": {"Name": "description_c"}}, 
+{"field": {"Name": "description_c"}}, 
+          {"field": {"Name": "notes_c"}}, 
           {"field": {"Name": "priority_c"}}, 
           {"field": {"Name": "dueDate_c"}}, 
           {"field": {"Name": "completed_c"}},
@@ -59,10 +60,11 @@ class TaskService {
       
       const params = {
         fields: [
-          {"field": {"Name": "Name"}}, 
+{"field": {"Name": "Name"}}, 
           {"field": {"Name": "Tags"}}, 
           {"field": {"Name": "title_c"}}, 
           {"field": {"Name": "description_c"}}, 
+          {"field": {"Name": "notes_c"}}, 
           {"field": {"Name": "priority_c"}}, 
           {"field": {"Name": "dueDate_c"}}, 
           {"field": {"Name": "completed_c"}},
@@ -90,10 +92,11 @@ class TaskService {
       
       const params = {
         fields: [
-          {"field": {"Name": "Name"}}, 
+{"field": {"Name": "Name"}}, 
           {"field": {"Name": "Tags"}}, 
           {"field": {"Name": "title_c"}}, 
           {"field": {"Name": "description_c"}}, 
+          {"field": {"Name": "notes_c"}}, 
           {"field": {"Name": "priority_c"}}, 
           {"field": {"Name": "dueDate_c"}}, 
           {"field": {"Name": "completed_c"}},
@@ -126,8 +129,9 @@ class TaskService {
         records: [{
           Name: taskData.title || taskData.title_c || "Untitled Task",
           Tags: taskData.tags || "",
-          title_c: taskData.title || taskData.title_c || "",
+title_c: taskData.title || taskData.title_c || "",
           description_c: taskData.description || taskData.description_c || "",
+          notes_c: taskData.notes || taskData.notes_c || "",
           priority_c: taskData.priority || taskData.priority_c || "medium",
           dueDate_c: taskData.dueDate || taskData.dueDate_c || null,
           completed_c: false,
@@ -180,8 +184,12 @@ class TaskService {
         updateFields.Name = title
         updateFields.title_c = title
       }
-      if (updateData.description !== undefined || updateData.description_c !== undefined) {
+if (updateData.description !== undefined || updateData.description_c !== undefined) {
         updateFields.description_c = updateData.description || updateData.description_c
+      }
+
+      if (updateData.notes !== undefined || updateData.notes_c !== undefined) {
+        updateFields.notes_c = updateData.notes || updateData.notes_c
       }
       if (updateData.priority !== undefined || updateData.priority_c !== undefined) {
         updateFields.priority_c = updateData.priority || updateData.priority_c
@@ -294,11 +302,12 @@ class TaskService {
       const params = {
         fields: [
           {"field": {"Name": "Name"}}, 
-          {"field": {"Name": "Tags"}}, 
+{"field": {"Name": "Tags"}}, 
           {"field": {"Name": "title_c"}}, 
           {"field": {"Name": "description_c"}}, 
+          {"field": {"Name": "notes_c"}}, 
           {"field": {"Name": "priority_c"}}, 
-          {"field": {"Name": "dueDate_c"}}, 
+          {"field": {"Name": "dueDate_c"}},
           {"field": {"Name": "completed_c"}},
           {"field": {"Name": "listId_c"}, "referenceField": {"field": {"Name": "Name"}}},
           {"field": {"Name": "CreatedOn"}}
@@ -333,10 +342,11 @@ class TaskService {
       
       const params = {
         fields: [
-          {"field": {"Name": "Name"}}, 
+{"field": {"Name": "Name"}}, 
           {"field": {"Name": "Tags"}}, 
           {"field": {"Name": "title_c"}}, 
           {"field": {"Name": "description_c"}}, 
+          {"field": {"Name": "notes_c"}}, 
           {"field": {"Name": "priority_c"}}, 
           {"field": {"Name": "dueDate_c"}}, 
           {"field": {"Name": "completed_c"}},

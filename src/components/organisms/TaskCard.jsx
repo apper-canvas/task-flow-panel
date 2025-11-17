@@ -1,10 +1,12 @@
-import { motion } from "framer-motion"
-import Checkbox from "@/components/atoms/Checkbox"
-import Button from "@/components/atoms/Button"
-import PriorityBadge from "@/components/molecules/PriorityBadge"
-import DueDateBadge from "@/components/molecules/DueDateBadge"
-import ApperIcon from "@/components/ApperIcon"
-import { cn } from "@/utils/cn"
+import { motion } from "framer-motion";
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import { cn } from "@/utils/cn";
+import ApperIcon from "@/components/ApperIcon";
+import DueDateBadge from "@/components/molecules/DueDateBadge";
+import PriorityBadge from "@/components/molecules/PriorityBadge";
+import Button from "@/components/atoms/Button";
+import Checkbox from "@/components/atoms/Checkbox";
 
 const TaskCard = ({ 
   task, 
@@ -66,11 +68,28 @@ task.completed_c && "line-through text-gray-500"
               
 {task.description_c && (
                 <p className={cn(
-"mt-1 text-sm text-gray-600 line-clamp-2",
+                  "mt-1 text-sm text-gray-600 line-clamp-2",
                   task.completed && "text-gray-400"
                 )}>
-{task.description_c}
+                  {task.description_c}
                 </p>
+              )}
+
+              {task.notes_c && (
+                <div className={cn(
+                  "mt-2 text-sm text-gray-600",
+                  task.completed && "text-gray-400"
+                )}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <ApperIcon name="FileText" size={14} />
+                    <span className="text-xs font-medium text-gray-500">Notes</span>
+                  </div>
+                  <div className="markdown-content prose prose-sm max-w-none line-clamp-3">
+                    <ReactMarkdown>
+                      {task.notes_c}
+                    </ReactMarkdown>
+                  </div>
+                </div>
               )}
               
               {/* Badges */}

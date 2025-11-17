@@ -4,6 +4,7 @@ import Textarea from "@/components/atoms/Textarea"
 import Select from "@/components/atoms/Select"
 import Button from "@/components/atoms/Button"
 import ListSelector from "@/components/molecules/ListSelector"
+import MarkdownEditor from "@/components/molecules/MarkdownEditor"
 import ApperIcon from "@/components/ApperIcon"
 
 const TaskForm = ({ 
@@ -15,6 +16,7 @@ const TaskForm = ({
 const [formData, setFormData] = useState({
     title: "",
     description: "",
+    notes: "",
     priority: "medium",
     dueDate: "",
     listId: "1"
@@ -25,9 +27,10 @@ const [formData, setFormData] = useState({
   useEffect(() => {
     if (task) {
       setFormData({
-        title: task.title || "",
+title: task.title || "",
         description: task.description || "",
-priority: task.priority_c || "medium",
+        notes: task.notes_c || "",
+        priority: task.priority_c || "medium",
         dueDate: task.dueDate_c || "",
         listId: task.listId_c?.Id?.toString() || "1"
       })
@@ -95,11 +98,19 @@ priority: task.priority_c || "medium",
         />
         
         <Textarea
-          label="Description"
+label="Description"
           value={formData.description}
           onChange={(e) => handleChange("description", e.target.value)}
           placeholder="Add details about this task..."
           rows={3}
+        />
+
+        <MarkdownEditor
+          label="Notes"
+          value={formData.notes}
+          onChange={(e) => handleChange("notes", e.target.value)}
+          placeholder="Add detailed notes with markdown formatting..."
+          rows={6}
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
